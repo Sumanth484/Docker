@@ -1,0 +1,50 @@
+
+#This pipeline builds and runs test cases on the python project
+
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url:'https://github.com/Sumanth484/Python-Django-WebApplication.git'
+            }
+        }
+        stage('Setup Virtual Environment') {
+            steps {
+                sh '''
+                    virtualenv venv
+                    . venv/bin/activate
+                    pip install -r requirements.txt
+                '''
+            }
+        }
+        stage('Run Migrations') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    python manage.py migrate
+                '''
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    python manage.py test
+                '''
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline execution completed.'
+        }
+        success {
+            echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline execution failed.'
+        }
+    }
+}
+
