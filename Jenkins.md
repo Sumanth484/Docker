@@ -17,3 +17,5 @@ sudo apt install virtualenv
 ```
 
 ### Now Run the pipeline and see whether the migrates folder and sqllite file are generated or not.
+
+
