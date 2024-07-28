@@ -43,7 +43,7 @@
         python3 manage.py runserver 0.0.0.0:8000
     ```
 Notes
-    modify1
+    modify2
     Ensure that your EC2 instance’s security group allows inbound traffic on port 8000.
     For production environments, consider using a more robust server like Gunicorn and a web server like Nginx.
 
