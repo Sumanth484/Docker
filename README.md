@@ -46,5 +46,4 @@ Notes
 
     Ensure that your EC2 instance’s security group allows inbound traffic on port 8000.
     For production environments, consider using a more robust server like Gunicorn and a web server like Nginx.
---modification.
 
